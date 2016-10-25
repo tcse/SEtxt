@@ -1,0 +1,158 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<title>SEtxt</title>
+	<style>
+	html, body { font: 13px/18px Arial, Helvetica, sans-serif; color: #333; background: #F1F1F1; margin: 0; padding: 0 }
+	.wrapper {
+		width: 800px;
+		overflow: hidden;
+		margin: 5% auto 0;  
+		-webkit-box-shadow: rgba( 0, 0, 0, 0.3 ) 0 1px 3px; 
+		-moz-box-shadow: rgba( 0, 0, 0, 0.3 ) 0 1px 3px; 
+		box-shadow: rgba( 0, 0, 0, 0.3 ) 0 1px 3px; 
+		border-color: #E5E5E5 #DBDBDB #D2D2D2; 
+		border-radius: 4px; 
+		background: #FFF; 
+		padding: 30px;
+		position: relative;
+	}
+	.wrapper .cms {
+		position: absolute;
+		top: 25px;
+		font-size: 18px;
+		right: 25px;
+		padding: 5px 10px;
+		color: #787878;
+		background-color: #ebebeb;
+		border-radius: 3px;
+	}
+	.wrapper .cms b {
+		color: #328ECD;
+	}
+	.wrapper .date {
+		position: absolute;
+		top: 25px;
+		font-size: 13px;
+		left: 25px;
+		padding: 5px 10px;
+		font-style: italic;
+		color: #787878;
+		background-color: #ebebeb;
+		border-radius: 3px;
+	}
+	.wrapper .date span {
+		color: #328ECD;
+	}
+	.wrapper .title { font-size: 28pt; font-weight: 700; line-height: 40pt }
+	.wrapper .result { margin-top: 10px }
+	.wrapper .explay { margin-top: 15px }
+	.wrapper .explay a { text-decoration: none; color: #787878 }
+	ol li {
+		margin: 5px 0;
+	}
+	xmp
+	{
+		display:inline;
+		margin:0;
+	}
+	textarea
+	{
+		white-space:pre!important;
+		word-wrap: break-word;
+	}
+	ol li textarea {
+		width: 100%;
+		background-color: #ebebeb;
+		outline: none;
+		border: 1px solid #ccc;
+		height: auto;
+		padding: 5px;
+	}
+	ol > ol {
+		list-style-type : none;
+	}
+	ol li .min {
+		min-height: 140px;
+	}
+	ol li .big {
+		min-height: 320px;
+	}
+	ol li .min_big {
+		min-height: 220px;
+	}
+	ol li .mini {
+		min-height: 60px;
+	}
+	img {
+		max-width: 750px;
+	}
+	</style>
+</head>
+<body>
+	<div class="wrapper">
+		<div class="title" style="text-align:center;"><br>SEtxt</div>
+		<div class="cms">DLE <b>9.0 - 11.x</b></div>
+		<div class="date">от <span>23.10.2016</span></div>
+		<ol>
+			<li>В нужном tpl доступен тег (несколько значений можно задавать через запятую): <textarea>[setxt browser="opera,yandex" os="windows"]текст[/setxt]</textarea>Кроме того можно писать так<textarea>[setxt browser="opera"]текст[/setxt]</textarea>Или так<textarea>[setxt os="linux"]текст[/setxt]</textarea>
+			<b>Список значений браузера (слева значения для параметра browser):</b><br/>
+			1.opera - Opera<br/>
+			2.opera_mini - Opera Mini<br/>
+			3.WebTV - WebTV<br/>
+			4.edge - Edge<br/>
+			5.ie - Internet Explorer<br/>
+			6.pie - Pocket Internet Explorer<br/>
+			7.konqueror - Konqueror<br/>
+			8.icab - iCab<br/>
+			9.omniweb - OmniWeb<br/>
+			10.firebird - Firebird<br/>
+			11.firefox - Firefox<br/>
+			12.iceweasel - Iceweasel<br/>
+			13.shiretoko - Shiretoko<br/>
+			14.mozilla - Mozilla<br/>
+			15.amaya - Amaya<br/>
+			16.lynx - Lynx<br/>
+			17.safari - Safari<br/>
+			18.iphone - iPhone<br/>
+			19.ipod - iPod<br/>
+			20.ipad - iPad<br/>
+			21.chrome - Chrome<br/>
+			22.android - Android<br/>
+			23.google - GoogleBot<br/>
+			24.yahoo - Yahoo! Slurp<br/>
+			25.w3c - W3C Validator<br/>
+			26.blackberry - BlackBerry<br/>
+			27.icecat - IceCat<br/>
+			28.nokia_60 - Nokia S60 OSS Browser<br/>
+			29.nokia - Nokia Browser<br/>
+			30.msn - MSN Browser<br/>
+			31.vivalidi - Vivalidi<br/>
+			32.playstation - PlayStation<br/>
+			33.yandex - Yandex<br/>
+			<br/><b>Список значений операционной системы (слева значения для параметра os):</b><br/>
+			1.windows - Windows<br/>
+			2.windows_ce - Windows CE<br/>
+			3.apple - Apple<br/>
+			4.linux - Linux<br/>
+			5.os2 - OS/2<br/>
+			6.beos - BeOS<br/>
+			7.iphone - iPhone<br/>
+			8.ipod - iPod<br/>
+			9.ipad - iPad<br/>
+			10.blackberry - BlackBerry<br/>
+			11.nokia - Nokia<br/>
+			12.free - FreeBSD<br/>
+			13.open - OpenBSD<br/>
+			14.net - NetBSD<br/>
+			15.sun - SunOS<br/>
+			16.solaris - OpenSolaris<br/>
+			17.android - Android<br/>
+			18.sony - Sony PlayStation<br/>
+			</li>
+		</ol>
+		<div class="result"><b>Автор:</b> Gameer. <a href="http://gameer.name/">http://gameer.name/</a></div>
+	</div>
+</body>
+</html>

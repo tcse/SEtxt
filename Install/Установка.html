@@ -1,0 +1,109 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<title>Установка SEtxt</title>
+	<style>
+	html, body { font: 13px/18px Arial, Helvetica, sans-serif; color: #333; background: #F1F1F1; margin: 0; padding: 0 }
+	.wrapper {
+		width: 800px;
+		overflow: hidden;
+		margin: 5% auto 0;  
+		-webkit-box-shadow: rgba( 0, 0, 0, 0.3 ) 0 1px 3px; 
+		-moz-box-shadow: rgba( 0, 0, 0, 0.3 ) 0 1px 3px; 
+		box-shadow: rgba( 0, 0, 0, 0.3 ) 0 1px 3px; 
+		border-color: #E5E5E5 #DBDBDB #D2D2D2; 
+		border-radius: 4px; 
+		background: #FFF; 
+		padding: 30px;
+		position: relative;
+	}
+	.wrapper .cms {
+		position: absolute;
+		top: 25px;
+		font-size: 18px;
+		right: 25px;
+		padding: 5px 10px;
+		color: #787878;
+		background-color: #ebebeb;
+		border-radius: 3px;
+	}
+	.wrapper .cms b {
+		color: #328ECD;
+	}
+	.wrapper .date {
+		position: absolute;
+		top: 25px;
+		font-size: 13px;
+		left: 25px;
+		padding: 5px 10px;
+		font-style: italic;
+		color: #787878;
+		background-color: #ebebeb;
+		border-radius: 3px;
+	}
+	.wrapper .date span {
+		color: #328ECD;
+	}
+	.wrapper .title { font-size: 28pt; font-weight: 700; line-height: 40pt }
+	.wrapper .result { margin-top: 10px }
+	.wrapper .explay { margin-top: 15px }
+	.wrapper .explay a { text-decoration: none; color: #787878 }
+	ol li {
+		margin: 5px 0;
+	}
+	xmp
+	{
+		display:inline;
+		margin:0;
+	}
+	textarea
+	{
+		white-space:pre!important;
+		word-wrap: break-word;
+	}
+	ol li textarea {
+		width: 100%;
+		background-color: #ebebeb;
+		outline: none;
+		border: 1px solid #ccc;
+		height: auto;
+		padding: 5px;
+	}
+	ol > ol {
+		list-style-type : none;
+	}
+	ol li .min {
+		min-height: 140px;
+	}
+	ol li .big {
+		min-height: 320px;
+	}
+	ol li .min_big {
+		min-height: 220px;
+	}
+	ol li .mini {
+		min-height: 60px;
+	}
+	img {
+		max-width: 750px;
+	}
+	</style>
+</head>
+<body>
+	<div class="wrapper">
+		<div class="title" style="text-align:center;"><br>SEtxt</div>
+		<div class="cms">DLE <b>9.0 - 11.x</b></div>
+		<div class="date">от <span>23.10.2016</span></div>
+		<ol>
+			<li>Скопируйте все файлы из папки <b>upload</b> в данном архиве на ваш сервер.</li>
+			<li>Выполните <b>/install.php</b> после удалите файл.</li>
+			<li>Зайдите в админ панель модуля и введите ключ который получили при покупке.</li>
+			<li>Открыть файл <b>/engine/classes/templates.class.php</b> найти <textarea>class dle_template {</textarea>Выше вставить:<textarea>require_once ROOT_DIR . '/engine/mod/SEtxt.php';</textarea>Далее найти:<textarea>$this->dir = ROOT_DIR . '/templates/';</textarea>Ниже вставить<textarea>$this->SEtxt = SEtxt::getSingleton();
+$this->SEtxt->construct();</textarea>Далее найти:<textarea>$this->_clear();</textarea>Выше вставить для UTF-8<textarea>$this->result[$tpl] = preg_replace_callback("#\\[setxt (.+?)\\](.*?)\\[/setxt\\]#umis", array($this->SEtxt, "checkMatch"), $this->result[$tpl]);</textarea>Для CP1251 вставить<textarea>$this->result[$tpl] = preg_replace_callback("#\\[setxt (.+?)\\](.*?)\\[/setxt\\]#mis", array($this->SEtxt, "checkMatch"), $this->result[$tpl]);</textarea>
+			</li>
+		</ol>
+		<div class="result"><b>Автор:</b> Gameer. <a href="http://gameer.name/">http://gameer.name/</a></div>
+	</div>
+</body>
+</html>

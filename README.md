@@ -1,5 +1,5 @@
-![version](https://img.shields.io/badge/version-1.0.0-red.svg?style=flat-square "Version")
-![DLE](https://img.shields.io/badge/DLE-9.X/11.x-green.svg?style=flat-square "DLE Version")
+![version](https://img.shields.io/badge/version-2.0-red.svg?style=flat-square "Version")
+![DLE](https://img.shields.io/badge/DLE-9.X--11.x-green.svg?style=flat-square "DLE Version")
 [![MIT License](https://img.shields.io/badge/license-AGPL_3.0-blue.svg?style=flat-square)](https://github.com/Gameerr/SEtxt/blob/master/LICENSE)
 
 # SEtxt: Описание
@@ -24,4 +24,4 @@ You should have received a copy of the GNU Affero General Public License along w
 $this->SEtxt->construct();</code></pre>Далее найти:<pre><code>$this->_clear();</code></pre>Выше вставить <b>для UTF-8</b>:<br />`$this->result[$tpl] = preg_replace_callback("#\\[setxt (.+?)\\](.*?)\\[/setxt\\]#umis", array($this->SEtxt, "checkMatch"), $this->result[$tpl]);`<br />Для <b>CP1251</b> вставить:<br />`$this->result[$tpl] = preg_replace_callback("#\\[setxt (.+?)\\](.*?)\\[/setxt\\]#mis", array($this->SEtxt, "checkMatch"), $this->result[$tpl]);`
 
 # SEtxt: Использование
-В нужном tpl доступен тег (несколько значений можно задавать через запятую):<br />`[setxt browser="opera,yandex" os="windows"]текст[/setxt]`<br />Кроме того можно писать так<br />`[setxt browser="opera"]текст[/setxt]`<br />Или так<br />`[setxt os="linux"]текст[/setxt]`<br />В файле <b>Работа с хаком.html</b> найдете перечень значений для параметров.
+В нужном tpl доступен тег (несколько значений можно задавать через запятую):<br />`[setxt browser="opera,yandex" os="windows"]текст[/setxt]`<br />Кроме того можно писать так<br />`[setxt browser="opera"]текст[/setxt]`<br />Или так<br />`[setxt os="linux"]текст[/setxt]`<br />Или так:<br />`[setxt browser-not="opera,yandex" os="windows"]текст[/setxt]`<br />Кроме того можно писать так<br />`[setxt browser-not="opera"]текст[/setxt]`<br />Или так<br />`[setxt os-not="linux"]текст[/setxt]`<br />Или так<br />`[setxt browser-not="opera,yandex" os-not="windows"]текст[/setxt]`<br />Приставки <b>-not</b> работают в обрабтном значении, то есть для всех кроме этих значений покажется текст.<br />В файле <b>Работа с хаком.html</b> найдете перечень значений для параметров.

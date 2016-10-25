@@ -101,29 +101,33 @@
 			public function checkMatch($matches)
 			{
 				$check_os = $flag_os = $flag_browser = false;
-				if( preg_match( "#browser=['\"](.+?)['\"]#i", $matches[1], $match_browser ) ) {
-					if($match_browser[1])
+				if( preg_match( "#browser(-\w+)?=['\"](.+?)['\"]#i", $matches[1], $match_browser ) ) {
+					if($match_browser[2])
 					{
-						$flag_browser = $this->checkOut($match_browser[1], "browser");
-						if( preg_match( "#os=['\"](.+?)['\"]#i", $matches[1], $match_os ) ) {
-							if($match_os[1])
+						$flag_browser = $this->checkOut($match_browser[2], "browser");
+						if( preg_match( "#os(-\w+)?=['\"](.+?)['\"]#i", $matches[1], $match_os ) ) {
+							if($match_os[2])
 							{
 								$check_os = true;
-								$flag_os = $this->checkOut($match_os[1], "os");
+								$flag_os = $this->checkOut($match_os[2], "os");
 							}
 						}
-						if($flag_browser && !$check_os)
-							return $matches[2];
-						elseif($flag_browser && $check_os && $flag_os)
-							return $matches[2];
+						return
+						($match_browser[1] == "-not" && !$match_os[1] && (!$flag_browser && !$check_os || !$flag_browser && $check_os && $flag_os)) ? $matches[2] :
+							($match_browser[1] == "-not" && $match_os[1] == "-not" && (!$flag_browser && !$check_os || !$flag_browser && $check_os && !$flag_os) ? $matches[2] :
+								(!$match_browser[1] && !$match_os[1] && ($flag_browser && !$check_os || $flag_browser && $check_os && $flag_os) ? $matches[2] :
+									(!$match_browser[1] && $matches_os[1] == "-not" && ($flag_browser && !$check_os || $flag_browser && $check_os && !$flag_os) ? $matches[2] : false
+									)
+								)
+							);
 					}
 				}
-				elseif( preg_match( "#os=['\"](.+?)['\"]#i", $matches[1], $match_os ) ) {
+				elseif( preg_match( "#os(-\w+)?=['\"](.+?)['\"]#i", $matches[1], $match_os ) ) {
 					$check_os = $flag_os = $flag_browser = false;
-					if($match_os[1])
-						$flag_os = $this->checkOut($match_os[1], "os");
+					if($match_os[2])
+						$flag_os = $this->checkOut($match_os[2], "os");
 					
-					if($flag_os)
+					if($flag_os && !$match_os[1] || !$flag_os && $match_os[1] == "-not")
 						return $matches[2];
 				}
 			}

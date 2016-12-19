@@ -20,7 +20,7 @@ You should have received a copy of the GNU Affero General Public License along w
 # SEtxt: Установка
 1. Скопируйте все файлы из папки upload в данном архиве на ваш сервер.
 2. Открыть файл <b>/engine/classes/templates.class.php</b> найти:<pre><code>class dle_template {</code></pre>Выше вставить:
-<pre><code>require_once ROOT_DIR . '/engine/mod/SEtxt.php';</code></pre>Далее найти:<pre><code>$this->dir = ROOT_DIR . '/templates/';</code></pre>Ниже вставить<pre><code>$this->SEtxt = SEtxt::getSingleton();
+<pre><code>require_once ROOT_DIR . '/engine/mod/SEtxt.php';</code></pre>Далее найти:<pre><code>$this->dir = ROOT_DIR . '/templates/';</code></pre>Ниже вставить<pre><code>$this->SEtxt = new SEtxt();
 $this->SEtxt->construct();</code></pre>Далее найти:<pre><code>$this->_clear();</code></pre>Выше вставить <b>для UTF-8</b>:<br />`$this->result[$tpl] = preg_replace_callback("#\\[setxt (.+?)\\](.*?)\\[/setxt\\]#umis", array($this->SEtxt, "checkMatch"), $this->result[$tpl]);`<br />Для <b>CP1251</b> вставить:<br />`$this->result[$tpl] = preg_replace_callback("#\\[setxt (.+?)\\](.*?)\\[/setxt\\]#mis", array($this->SEtxt, "checkMatch"), $this->result[$tpl]);`
 
 # SEtxt: Использование

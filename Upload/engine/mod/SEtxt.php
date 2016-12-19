@@ -9,19 +9,7 @@
 			private static $instance;
 			private $Browser, $Browser_Array, $Os_Array;
 			
-			private function __construct(){}
-			private function __clone(){}
-			private function __wakeup(){}
-			
-			public static function getSingleton()
-			{
-				if (!isset(self::$instance))
-					self::$instance = new self();
-				return self::$instance;
-			}
-			
-			public function construct()
-			{
+			function __construct(){
 				$this->Browser = new Browser();
 				$this->Browser_Array = array(
 					"opera" => "Opera",

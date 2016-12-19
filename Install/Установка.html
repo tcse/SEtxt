@@ -97,7 +97,7 @@
 		<div class="date">от <span>23.10.2016</span></div>
 		<ol>
 			<li>Скопируйте все файлы из папки <b>upload</b> в данном архиве на ваш сервер.</li>
-			<li>Открыть файл <b>/engine/classes/templates.class.php</b> найти <textarea>class dle_template {</textarea>Выше вставить:<textarea>require_once ROOT_DIR . '/engine/mod/SEtxt.php';</textarea>Далее найти:<textarea>$this->dir = ROOT_DIR . '/templates/';</textarea>Ниже вставить<textarea>$this->SEtxt = SEtxt::getSingleton();
+			<li>Открыть файл <b>/engine/classes/templates.class.php</b> найти <textarea>class dle_template {</textarea>Выше вставить:<textarea>require_once ROOT_DIR . '/engine/mod/SEtxt.php';</textarea>Далее найти:<textarea>$this->dir = ROOT_DIR . '/templates/';</textarea>Ниже вставить<textarea>$this->SEtxt = new SEtxt();
 $this->SEtxt->construct();</textarea>Далее найти:<textarea>$this->_clear();</textarea>Выше вставить для UTF-8<textarea>$this->result[$tpl] = preg_replace_callback("#\\[setxt (.+?)\\](.*?)\\[/setxt\\]#umis", array($this->SEtxt, "checkMatch"), $this->result[$tpl]);</textarea>Для CP1251 вставить<textarea>$this->result[$tpl] = preg_replace_callback("#\\[setxt (.+?)\\](.*?)\\[/setxt\\]#mis", array($this->SEtxt, "checkMatch"), $this->result[$tpl]);</textarea>
 			</li>
 		</ol>
